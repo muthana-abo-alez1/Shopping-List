@@ -6,6 +6,10 @@ export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => setIsCartOpen((prev) => !prev);
+  const closeCart = () => setIsCartOpen(false);
 
   const addToCart = (product, quantity) => {
     setCartItems((prevItems) => {
@@ -13,20 +17,18 @@ export const CartProvider = ({ children }) => {
       if (itemExists) {
         return prevItems.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + quantity } 
+            ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       } else {
-        return [...prevItems, { ...product, quantity }]; 
+        return [...prevItems, { ...product, quantity }];
       }
     });
   };
 
   const updateQuantity = (id, quantity) => {
-    setCartItems((prevItems) => 
-      prevItems.map((item) =>
-        item.id === id ? { ...item, quantity } : item
-      )
+    setCartItems((prevItems) =>
+      prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
     );
   };
 
@@ -35,11 +37,25 @@ export const CartProvider = ({ children }) => {
   };
 
   const getTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    return cartItems
+      .reduce((total, item) => total + item.price * item.quantity, 0)
+      .toFixed(2);
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity, getTotal ,setCartItems}}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        getTotal,
+        setCartItems,
+        isCartOpen,
+        toggleCart,
+        closeCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

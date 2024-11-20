@@ -14,7 +14,7 @@ function Cart() {
 
     const handleCheckout = (e) => {
       e.preventDefault();
-      if (cartItems.length === 0) return;
+      if (!cartItems.length) return;
         addOrder(cartItems, userInfo);
       setCartItems([]);
       navigate("/my-orders");

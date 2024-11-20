@@ -1,6 +1,7 @@
 import React from "react";
 import "./OrderCard.scss";
 import { formatDate } from "../../../../shared/formatters/DateFormatter";
+import { calculateTotalPrice } from "../../../utils/priceUtils";
 
 function OrderCard({ order, index }) {
   return (
@@ -26,9 +27,7 @@ function OrderCard({ order, index }) {
         </ul>
         <p className="total-price">
           Total: $
-          {order.items
-            .reduce((total, item) => total + item.price * item.quantity, 0)
-            .toFixed(2)}
+           {calculateTotalPrice(order.items)}
         </p>
       </div>
     </div>

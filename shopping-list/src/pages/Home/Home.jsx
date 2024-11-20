@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CartButton from "./components/CartButton/CartButton";
 import ProductsSection from "./components/ProductSection/ProductsSection";
 import "./Home.scss";
+import CartDialog from "./components/CartDialog/CartDialog";
 const Home = () => {
   const navigate = useNavigate();
 
@@ -18,6 +19,7 @@ const Home = () => {
       </button>
       <ProductsSection />
       <CartButton />
+      <CartDialog/>
     </div>
   );
 };

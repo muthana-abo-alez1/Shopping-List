@@ -2,6 +2,7 @@ import React from "react";
 import { useCart } from "../../../../context/CartContext";
 import "./CartItem.scss";
 import QuantitySelector from "../QuantitySelector/QuantitySelector";
+import { calculateItemPrice } from "../../../utils/priceUtils";
 
 function CartItem({ item }) {
   const { removeFromCart, updateQuantity } = useCart();
@@ -29,7 +30,7 @@ function CartItem({ item }) {
             onDecrement={handleDecrement}
           />
 
-          <p>${(item.price * item.quantity).toFixed(2)}</p>
+          <p>${calculateItemPrice(item.price, item.quantity)}</p>
         </div>
         <button
           className="remove-item-btn"
