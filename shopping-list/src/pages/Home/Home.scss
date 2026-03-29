@@ -1,0 +1,24 @@
+.home {
+    padding: 30px;
+    position: relative; 
+  
+    .my-orders-btn {
+      padding: 10px 20px;
+      background-color: #e76f51;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+      
+      position: absolute;  
+      right: 15px;         
+      top: 60px;           
+  
+      &:hover {
+        background-color: #d9534f;
+      }
+    }
+  }
+  

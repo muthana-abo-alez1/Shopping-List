@@ -1,0 +1,46 @@
+.my-order {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+  
+    p {
+      font-size: 1.1rem;
+      color: #777;
+      text-align: center;
+    }
+  
+    .order-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .back-to-shop-btn {
+        padding: 10px 20px;
+        background-color: #e76f51;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+        
+        position: absolute;  
+        left: 15px;         
+        top: 65px;           
+    
+        &:hover {
+          background-color: #d9534f;
+        }
+      }
+  }
+  
